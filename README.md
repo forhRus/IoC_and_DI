@@ -286,7 +286,7 @@ Cat cat = context.getBean("catBean", Cat.class);
 cat.say();
 ```
 Если к аннотации `@Component` не прописать bean id, то бину будет назначен дефолтный id.  
-Дефолтный bean id получается из имени класса, заменя его первую заглавную букву на прописную.
+Дефолтный bean id получается из имени класса, заменяя его первую заглавную букву на прописную.
 
 Исключение - 2+ заглавных букв в имени класса. Тогда бин будет таким же как имя класса.
 ```agsl
@@ -303,7 +303,7 @@ class SQLTest{ }
 * Поле
 
 ```agsl
-// Пример использования аннтоции на поле
+// Пример использования аннотции на поле
 @Autowired
 private Pet pet;
 ```
@@ -316,7 +316,7 @@ private Pet pet;
 
 #### Аннотация `@Qualifier`
 Если сканирование нашло большего одного подходящего бина, то мы можем использовать
-аннотациаю `@Qualifier("bean id")`. И в поле будет подставлен бин с указанным `id`  
+аннотациаю `@Qualifier("bean_id")`. И в поле будет подставлен бин с указанным `id`  
 ```agsl
 // В конструкторе ставить надо перед нужным параметром
 @Autowired
@@ -349,7 +349,7 @@ private int age;
 Дабавим в наш конфигурационный файл строку:
 ```aidl
 <!--  путь к файлу со значенями  -->
-<context:property-placeholder location="classpath:ex06.properties"/>
+<context:property-placeholder location="classpath:myApp.properties"/>
 ```
 Теперь в аннотацию нужно подставить значения из файла
 ```agsl
@@ -375,6 +375,7 @@ public class Cat implements Pet { ... }
 
 ## Конфигурация Spring Container-а с помощью Java кода (только аннотации)
 #### ex10
+
 ### Способ первый.
 Для настроек конфигураций, нам необходим класс с аннотацией `@Configuraton`
 ```agsl
@@ -390,6 +391,7 @@ public class MyConfig {
 AnnotationConfigApplicationContext context =
             new AnnotationConfigApplicationContext(MyConfig.class);
 ```
+
 ### Способ второй.
 
 * Данный способ не использует сканирование пакета и поиск бинов.
